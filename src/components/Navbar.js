@@ -14,7 +14,7 @@ const Navbar = () => {
         setClick(!click);
     }
     const closeMobileMenu=()=>{
-        setClick({click:false});
+        setClick(false);
     }
     const showButton = () => {
         if (window.innerWidth <= 960) {
@@ -25,9 +25,10 @@ const Navbar = () => {
     };
     useEffect(() => {
     showButton();
+ 
     }, []);
 
-      window.addEventListener('resize', showButton);
+    window.addEventListener('resize', showButton);
     return ( 
         <>
             <nav className='navbar'>
@@ -41,10 +42,8 @@ const Navbar = () => {
                     <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                         <li className='nav-item'><Link className='nav-links' to="/" onClick={closeMobileMenu}>Home</Link></li>
                         <li className='nav-item'><Link className='nav-links' to="/services" onClick={closeMobileMenu}>Services</Link></li>
-                        <li className='nav-item'><Link className='nav-links' to="/product" onClick={closeMobileMenu}>Products</Link></li>
-                        <li className='nav-item'><Link className='nav-links-mobile' to="/signup" onClick={closeMobileMenu}>SignUp</Link></li>
-                        
-
+                        <li className='nav-item'><Link className='nav-links' to="/products" onClick={closeMobileMenu}>Products</Link></li>
+                        <li className='nav-item'><Link className='nav-links-mobile' to="/signUp" onClick={closeMobileMenu}>SignUp</Link></li>
                     </ul>
                      {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
                 </div>
